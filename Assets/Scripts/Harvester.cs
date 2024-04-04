@@ -76,6 +76,13 @@ public class Harvester : MonoBehaviour
     public void SortHarvestByAmount()
     {
         // Sort the collected harvest using Quick sort
+        Debug.Log($"Sorting List from: 0 to {collectedHarvests.Count}");
+
+        for(int i = 0; i < collectedHarvests.Count; i++)
+        {
+            Debug.Log($"{collectedHarvests[i]._name} ({collectedHarvests[i]._time}): {collectedHarvests[i]._amount}");
+        }
+
         QuickSort(collectedHarvests, 0, collectedHarvests.Count-1);
         UIManager._instance.ShowTotalHarvest();
     }
@@ -87,35 +94,34 @@ public class Harvester : MonoBehaviour
         if (left < right)
         {
             switchVal = QuickSortPartition(list, left, right);
-
-            if (switchVal > 1)
-                QuickSort(list, left, switchVal - 1);
-            if (switchVal+1 < right)
-                QuickSort(list, switchVal + 1, right);
+            
+            QuickSort(list, left, switchVal - 1);
+            QuickSort(list, switchVal + 1, right);
         }
     }
 
     private int QuickSortPartition (List<CollectedHarvest> list, int left, int right)
     {
-        int switchVal = list[left]._amount;
-        while(true)
-        {
-            while (list[left]._amount < switchVal)
-                left++;
-            while (list[right]._amount > switchVal)
-                right--;
+        int switchVal = list[right]._amount;
+        int i = left-1;
 
-            if (left < right)
+        for (int j = left; j < right; j++)
+        {
+            if (list[j]._amount <= switchVal)
             {
+                i++;
                 CollectedHarvest tempVal = list[right];
                 list[right] = list[left];
                 list[left] = tempVal;
             }
-            else
-                return right;
         }
-    }
 
+        CollectedHarvest tempVal2 = list[i + 1];
+        list[i + 1] = list[right];
+        list[right] = tempVal2;
+
+        return i + 1;
+    }
 }
 
 // For Assignment 2, this holds a collected harvest object
