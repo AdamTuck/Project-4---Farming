@@ -15,6 +15,8 @@ public class Harvester : MonoBehaviour
     public List<CollectedHarvest> collectedHarvests = new List<CollectedHarvest>();
 
     public static Harvester _instance;
+
+    private bool sortAscending = false;
        
     private void Awake()
     {
@@ -76,7 +78,7 @@ public class Harvester : MonoBehaviour
     public void SortHarvestByAmount()
     {
         // Sort the collected harvest using Quick sort
-        Debug.Log($"Sorting List from: 0 to {collectedHarvests.Count}");
+        Debug.Log($"Sorting List from: 0 to {collectedHarvests.Count-1}");
 
         for(int i = 0; i < collectedHarvests.Count; i++)
         {
@@ -85,15 +87,14 @@ public class Harvester : MonoBehaviour
 
         QuickSort(collectedHarvests, 0, collectedHarvests.Count-1);
         UIManager._instance.ShowTotalHarvest();
+        sortAscending = !sortAscending;
     }
 
     private void QuickSort (List<CollectedHarvest> list, int left, int right)
     {
-        int switchVal;
-
         if (left < right)
         {
-            switchVal = QuickSortPartition(list, left, right);
+            int switchVal = QuickSortPartition(list, left, right);
             
             QuickSort(list, left, switchVal - 1);
             QuickSort(list, switchVal + 1, right);
@@ -107,12 +108,25 @@ public class Harvester : MonoBehaviour
 
         for (int j = left; j < right; j++)
         {
-            if (list[j]._amount <= switchVal)
+            if (sortAscending)
             {
-                i++;
-                CollectedHarvest tempVal = list[right];
-                list[right] = list[left];
-                list[left] = tempVal;
+                if (list[j]._amount >= switchVal)
+                {
+                    i++;
+                    CollectedHarvest tempVal = list[i];
+                    list[i] = list[j];
+                    list[j] = tempVal;
+                }
+            }
+            else
+            {
+                if (list[j]._amount <= switchVal)
+                {
+                    i++;
+                    CollectedHarvest tempVal = list[i];
+                    list[i] = list[j];
+                    list[j] = tempVal;
+                }
             }
         }
 

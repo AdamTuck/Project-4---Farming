@@ -15,10 +15,10 @@ MonoBehaviour:
   _plantTypeName: Potatoes
   _harvestSprite: {fileID: 1826556347, guid: 7862a1f8665fbd54bb34a6e6ebf41e50, type: 3}
   _seedSprite: {fileID: 293069461, guid: 7862a1f8665fbd54bb34a6e6ebf41e50, type: 3}
-  _timeToGrow: 0.5
-  _minHarvest: 1
-  _maxHarvest: 5
-  _minSeeds: 1
-  _maxSeeds: 2
-  _pricePerSeed: 10
-  _pricePerHarvest: 2
+  _timeToGrow: 8
+  _minHarvest: 3
+  _maxHarvest: 8
+  _minSeeds: 2
+  _maxSeeds: 4
+  _pricePerSeed: 20
+  _pricePerHarvest: 8

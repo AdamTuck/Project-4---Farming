@@ -6,7 +6,7 @@ public class Seed : MonoBehaviour
 {
     [SerializeField] public Sprite[] _sprites;
 
-    private int _seedAmount;
+    [SerializeField]private int _seedAmount;
 
     public void SetSeed(string plantName, int seeds)
     {

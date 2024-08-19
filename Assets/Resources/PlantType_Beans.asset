@@ -15,7 +15,7 @@ MonoBehaviour:
   _plantTypeName: Beans
   _harvestSprite: {fileID: -370659641, guid: 7862a1f8665fbd54bb34a6e6ebf41e50, type: 3}
   _seedSprite: {fileID: -1910836652, guid: 7862a1f8665fbd54bb34a6e6ebf41e50, type: 3}
-  _timeToGrow: 0.5
+  _timeToGrow: 2
   _minHarvest: 1
   _maxHarvest: 5
   _minSeeds: 1

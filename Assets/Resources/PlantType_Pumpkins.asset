@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: PlantType_Pumpkins
   m_EditorClassIdentifier: 
   _plantTypeName: Pumpkins
-  _plant: {fileID: 1842740702562276335, guid: 96e957d6613954bd9bab76b0fe4bcbe1, type: 3}
   _harvestSprite: {fileID: -1912336348, guid: 7862a1f8665fbd54bb34a6e6ebf41e50, type: 3}
   _seedSprite: {fileID: 2034910846, guid: 7862a1f8665fbd54bb34a6e6ebf41e50, type: 3}
-  _timeToGrow: 0.5
-  _minHarvest: 1
-  _maxHarvest: 5
-  _minSeeds: 1
-  _maxSeeds: 2
-  _pricePerSeed: 10
-  _pricePerHarvest: 2
+  _timeToGrow: 12
+  _minHarvest: 2
+  _maxHarvest: 6
+  _minSeeds: 2
+  _maxSeeds: 3
+  _pricePerSeed: 25
+  _pricePerHarvest: 10

@@ -162,11 +162,12 @@ public class Planter : MonoBehaviour
             if(_availableSeeds.ContainsKey(plantType))
             {
                 // add seeds to that plant
-                _availableSeeds[_selectedPlantType] += seeds;
+                //_availableSeeds[_selectedPlantType] += seeds; - THANKS FOR THIS CIRCUITSTREAM
+                _availableSeeds[plantType] += seeds;
 
                 // Update listeners
-                OnSeedsChanged(plantName, _availableSeeds[_selectedPlantType]);
-
+                OnSeedsChanged(plantName, _availableSeeds[plantType]);
+                //OnSeedsChanged(plantName, _availableSeeds[_selectedPlantType]);
             }
         }
     }
